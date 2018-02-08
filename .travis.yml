@@ -1,0 +1,13 @@
+os:
+  - linux
+  - osx
+language: node_js
+node_js:
+  - '9'
+  - '8'
+  - '7'
+  - '6'
+  - '5'
+install:
+- npm install -g data-cli
+script: data --version
