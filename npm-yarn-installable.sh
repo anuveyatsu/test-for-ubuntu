@@ -11,8 +11,11 @@ npm uninstall -g data-cli
 if [ $(uname) = 'Darwin' ]; then
   brew install yarn
 else
-  npm i -g yarn
+  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  sudo apt-get update && sudo apt-get install yarn
 fi
 
 yarn global add data-cli
-data-cli --version
+data --version
+data info https://datahub.io/core/finance-vix
