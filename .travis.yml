@@ -1,20 +1,21 @@
-os:
-  - linux
-  - osx
 language: node_js
 node_js:
-  - '9'
   - '8'
-  - '7'
+matrix:
+  include:
+  - os: linux
+    env: TEST=true
+  - os: osx
+    env: TEST=false
 before_install:
-  - npm install -g data-cli@0.7.0
+  - env $TEST npm install -g data-cli@0.7.0
 install:
-  - data --version
+  - env $TEST data --version
 script:
-  - npm update -g data-cli
+  - env $TEST npm update -g data-cli
 after_success:
-  - data --version
-  - data help
+  - env $TEST data --version
+  - env $TEST data help
 after_script:
   - chmod ugo+x npm-yarn-installable.sh
   - ./npm-yarn-installable.sh
