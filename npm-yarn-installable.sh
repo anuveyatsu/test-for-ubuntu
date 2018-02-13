@@ -11,3 +11,4 @@ npm uninstall -g data-cli
 npm i -g yarn
 yarn global add data-cli
 data --version
+data-cli --version

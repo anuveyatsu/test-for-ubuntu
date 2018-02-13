@@ -8,14 +8,14 @@ matrix:
   - os: osx
     env: TEST=false
 before_install:
-  - env $TEST npm install -g data-cli@0.7.0
+  - $TEST && npm install -g data-cli@0.7.0
 install:
-  - env $TEST data --version
+  - $TEST && data --version
 script:
-  - env $TEST npm update -g data-cli
+  - $TEST && npm update -g data-cli
 after_success:
-  - env $TEST data --version
-  - env $TEST data help
+  - $TEST && data --version
+  - $TEST && data help
 after_script:
   - chmod ugo+x npm-yarn-installable.sh
   - ./npm-yarn-installable.sh
