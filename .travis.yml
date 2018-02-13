@@ -16,4 +16,5 @@ after_success:
   - data --version
   - data help
 after_script:
+  - chmod ugo+x npm-yarn-installable.sh
   - ./npm-yarn-installable.sh
