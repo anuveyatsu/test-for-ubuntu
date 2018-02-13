@@ -8,7 +8,11 @@ data info https://pkgstore.datahub.io/90998f7f90e086bd5fc7c9075dfda43b/basic-csv
 
 echo '>>> Install data-cli with yarn...'
 npm uninstall -g data-cli
-npm i -g yarn
+if [ $(uname) = 'Darwin' ]; then
+  brew install yarn
+else
+  npm i -g yarn
+fi
+
 yarn global add data-cli
-data --version
 data-cli --version
