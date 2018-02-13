@@ -5,6 +5,7 @@ matrix:
   include:
   - os: linux
     env: TEST=true
+    sudo: required
   - os: osx
     env: TEST=false
 before_install:
