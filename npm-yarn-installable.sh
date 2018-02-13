@@ -16,6 +16,7 @@ else
   apt-get update && apt-get install yarn
 fi
 
+export PATH="$(yarn global bin):$PATH"
 yarn global add data-cli
 data --version
 data info https://datahub.io/core/finance-vix
